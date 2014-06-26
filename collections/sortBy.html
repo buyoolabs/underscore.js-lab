@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Underscore.js Lab</title>
+    <meta name="description" content="Playing with undercore.js">
+</head>
+<body>
+    <script src="../underscore-min.js"></script>
+    <script>
+        var madridClients = [
+     { name: 'Juan', city: 'Madrid', age: 27 },
+     { name: 'Peter', city: 'Madrid', age: 31 },
+     { name: 'Oscar', city: 'Madrid', age: 24 },
+        ];
+        var sortedMadridClients = _.sortBy(madridClients, function (client) {
+            return client.age;
+        });
+        /* 
+        [{name: 'Oscar', city: 'Madrid', age: 24},
+         {name: 'Juan' , city: 'Madrid', age: 27},
+         {name: 'Peter', city: 'Madrid', age: 31},
+        ]
+        */
+
+
+        _.each(sortedMadridClients, function (client) {
+            document.write(client.name + "<br>");
+        })
+
+
+    </script>
+</body>
+</html>

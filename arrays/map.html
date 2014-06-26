@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Underscore.js Lab</title>
+  <meta name="description" content="Playing with undercore.js">
+</head>
+<body>
+    <p>Transform an array of strings into an array of cats</p>
+    <script src="../underscore-min.js"></script>
+	<script>
+        function CatMaker(name) {
+            return {
+                speak: function () {
+                    document.write("Miaow my name is " + name + "<br>");
+                }
+            };
+        }
+
+        var catNames = ['Charlie', 'Fluffy', 'Mouse'];
+        var cats = _.map(catNames, function (name) {
+            return CatMaker(name);
+        });
+
+        _.each(cats, function (cat) {
+            cat.speak();
+        });
+	</script>
+</body>
+</html>

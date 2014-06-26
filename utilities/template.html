@@ -1,0 +1,31 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Underscore.js Lab</title>
+    <meta name="description" content="Playing with undercore.js">
+</head>
+<body>
+    <script src="../underscore-min.js"></script>
+    <script>
+        // Compiles JavaScript templates into functions that can be evaluated for rendering. Useful for rendering complicated bits of HTML from JSON data sources. Template functions can both interpolate variables, using <%= … %>, as well as execute arbitrary JavaScript code, with <% … %>. If you wish to interpolate a value, and have it be HTML-escaped, use <%- … %> When you evaluate a template function, pass in a data object that has properties corresponding to the template's free variables. If you're writing a one-off, you can pass the data object as the second parameter to template in order to render immediately instead of returning a template function. The settings argument should be a hash containing any _.templateSettings that should be overridden.
+        var compiled = _.template("hello: <%= name %>");
+        document.write(compiled({ name: 'moe' }));
+        //=> "hello: moe"
+
+        var list = "<% _.each(people, function(name) { %> <li><%= name %></li> <% }); %>";
+        document.write(_.template(list, { people: ['moe', 'curly', 'larry'] }));
+        //=> "<li>moe</li><li>curly</li><li>larry</li>"
+
+        var template = _.template("<b><%- value %></b>");
+        template({ value: '<script>' });
+        //=> "<b>&lt;script&gt;</b>"
+
+
+        // You can also use print from within JavaScript code. This is sometimes more convenient than using <%= ... %>.
+        var compiled = _.template("<% print('Hello ' + epithet); %>");
+        document.write(compiled({epithet: "stooge"}));
+        //=> "Hello stooge"
+    </script>
+</body>
+</html>

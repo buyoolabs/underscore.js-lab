@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Underscore.js Lab</title>
+    <meta name="description" content="Playing with undercore.js">
+</head>
+<body>
+    <script src="../underscore-min.js"></script>
+    <script>
+        var clienList = [
+      { name: 'Juan', city: 'Madrid', age: 27 },
+      { name: 'Peter', city: 'Madrid', age: 31 },
+      { name: 'Ana', city: 'Barcelona', age: 28 },
+      { name: 'Oscar', city: 'Madrid', age: 24 },
+      { name: 'Dani', city: 'Bilbao', age: 43 },
+      { name: 'Pedro', city: 'Valencia', age: 25 },
+      { name: 'Pablo', city: 'Sevilla', age: 27 },
+      { name: 'Marta', city: 'Sevilla', age: 32 }
+        ];
+        var madridClients = _.where(clienList, { city: 'Madrid' });
+        
+        /*
+        [ {name:'Juan' , city:'Madrid', age:27},
+          {name:'Peter', city:'Madrid', age:31},
+          {name:'Oscar', city:'Madrid', age:24},
+        ];
+        */
+
+
+        _.each(madridClients, function (client) {
+            document.write(client.name + "<br>");
+        })
+
+
+    </script>
+</body>
+</html>
